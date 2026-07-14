@@ -30,7 +30,7 @@
         layers = <SCROLL>;
         input-processors = <
                             &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)
-                            &zip_xy_scaler 1 40 // layer2(SCROLL)のスクロール速度を半分に（除数 20→40）
+                            &zip_xy_scaler 1 80 // layer2(SCROLL)のスクロール速度をさらに半分に（除数 40→80、元の1/4）
                             &zip_xy_to_scroll_mapper
         >;
     };
