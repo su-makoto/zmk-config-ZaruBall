@@ -48,6 +48,30 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        // ESC(位置0) + 左親指space/shift(位置73) → 画面スリープ（Ctrl+Shift+Eject = ディスプレイのみ）
+        // layer0 のみで有効。離れたキー同士なので timeout はやや長め
+        combo_display_sleep {
+            timeout-ms = <75>;
+            key-positions = <0 73>;
+            bindings = <&kp LC(LS(C_EJECT))>;
+            layers = <0>;
+        };
+
+        // ESC(位置0) + Enter(位置74) → 画面ロック（Ctrl+Cmd+Q）
+        // layer0 のみで有効
+        combo_lock_screen {
+            timeout-ms = <75>;
+            key-positions = <0 74>;
+            bindings = <&kp LC(LG(Q))>;
+            layers = <0>;
+        };
+    };
+};
+
+/ {
     behaviors {
         // スクロール用のbehaviorの設定
 
