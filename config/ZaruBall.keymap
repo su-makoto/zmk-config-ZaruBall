@@ -156,6 +156,46 @@
                 , <&kp LEFT &kp LEFT>;
             label = "CODE_QUOTE";
         };
+
+        // - キーで「␣-␣」を入力（前後スペース付きハイフン）
+
+        dash_spaced: dash_spaced {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp MINUS &kp SPACE>;
+            label = "DASH_SPACED";
+        };
+
+        // = キーで「␣=␣」を入力（前後スペース付きイコール）
+
+        equal_spaced: equal_spaced {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp SPACE &kp EQUAL &kp SPACE>;
+            label = "EQUAL_SPACED";
+        };
+
+        // ( キーで「()」を入力し、カーソルを中へ戻す（LEFT×1）
+
+        paren_pair: paren_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS>
+                , <&kp LEFT>;
+            label = "PAREN_PAIR";
+        };
+
+        // " キーで「""」を入力し、カーソルを中へ戻す（LEFT×1）
+
+        quote_pair: quote_pair {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp DOUBLE_QUOTES &kp DOUBLE_QUOTES>
+                , <&kp LEFT>;
+            label = "QUOTE_PAIR";
+        };
     };
 };
 
@@ -229,9 +269,9 @@
         macro_layer {
             display-name = "Macro";
             bindings = <
-&kp LC(LS(C_EJECT))  &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &trans    &kp MINUS
-&trans   &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans                &kp P     &kp EQUAL
-&trans   &trans  &kp S   &trans  &trans  &trans  &code_quote  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON             &kp UP    &kp DOUBLE_QUOTES
+&kp LC(LS(C_EJECT))  &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair  &trans    &dash_spaced
+&trans   &trans  &trans          &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans                &kp P     &equal_spaced
+&trans   &trans  &kp LG(LS(N4))  &trans  &trans  &trans  &code_quote  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON             &kp UP    &quote_pair
 &trans   &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LEFT              &kp DOWN  &kp RIGHT
 &trans   &trans          &trans  &trans  &trans  &trans                                         &trans  &trans                                                  &trans
             >;
