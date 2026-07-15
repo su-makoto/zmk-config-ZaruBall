@@ -113,6 +113,17 @@
 
             display-name = "SandS";
         };
+
+        // 右下キー用: 単体は TAB、Cmd(GUI)押下中は LANG1(かな/日本語IME)
+        // mod-morph は既定でトリガー mod(GUI) を出力から除去するため、
+        // macOS には LANG1 単独が届く（Cmd+TAB のアプリ切替は無効化される）
+
+        gui_tab_ime: gui_tab_ime {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp TAB>, <&kp LANG1>;
+            mods = <(MOD_LGUI|MOD_RGUI)>;
+        };
     };
 };
 
@@ -211,7 +222,7 @@
 &mo MACRO     &kp Q       &kp W   &kp E               &kp R                  &kp T                                          &kp KP_N4     &kp KP_N5  &kp KP_N6   &kp KP_MULTIPLY              &kp Y         &kp U   &kp I      &kp O       &kp P          &kp EQUAL
 &kp LCTRL     &kp A       &kp S   &kp D               &kp F                  &kp G               &kp GRAVE                  &kp KP_N1     &kp KP_N2  &kp KP_N3   &kp KP_MINUS       &kp LBKT  &kp H         &kp J   &kp K      &kp L       &kp SEMICOLON  &kp SQT
 &kp LSHFT     &kp Z       &kp X   &kp C               &kp V                  &none               &kp B                      &kp KP_ENTER  &kp KP_N0  &kp KP_DOT  &kp KP_PLUS        &kp RBKT  &kp N         &kp M   &kp COMMA  &kp PERIOD  &kp SLASH      &lt SCROLL BACKSLASH
-&kp LCMD      &kp C_MUTE          &SandS LCTRL LANG2  &SandS LEFT_ALT LANG1  &SandS LSHFT SPACE  &SandS LEFT_SHIFT SPACE                                                            &kp BSPC  &lt 3 RET                                                   &kp TAB
+&mt LGUI LANG2  &kp C_MUTE          &SandS LCTRL LANG2  &SandS LEFT_ALT LANG1  &SandS LSHFT SPACE  &SandS LEFT_SHIFT SPACE                                                            &kp BSPC  &lt 3 RET                                                   &gui_tab_ime
             >;
         };
 
