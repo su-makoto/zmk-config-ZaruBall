@@ -144,6 +144,18 @@
 
             label = "MKP_EXIT_AML";
         };
+
+        // ` キーで「␣``␣」を入力し、カーソルを `` の中へ戻す（インラインコード補助）
+        // 出力: SPACE GRAVE GRAVE SPACE → LEFT LEFT で 2 つの ` の間へ
+
+        code_quote: code_quote {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&kp SPACE &kp GRAVE &kp GRAVE &kp SPACE>
+                , <&kp LEFT &kp LEFT>;
+            label = "CODE_QUOTE";
+        };
     };
 };
 
@@ -217,9 +229,9 @@
         macro_layer {
             display-name = "Macro";
             bindings = <
-&kp ESC  &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &trans    &kp MINUS
+&kp LC(LS(C_EJECT))  &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &kp LEFT_PARENTHESIS  &trans    &kp MINUS
 &trans   &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans                &kp P     &kp EQUAL
-&trans   &trans  &kp S   &trans  &trans  &trans  &kp GRAVE    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON             &kp UP    &kp DOUBLE_QUOTES
+&trans   &trans  &kp S   &trans  &trans  &trans  &code_quote  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON             &kp UP    &kp DOUBLE_QUOTES
 &trans   &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LEFT              &kp DOWN  &kp RIGHT
 &trans   &trans          &trans  &trans  &trans  &trans                                         &trans  &trans                                                  &trans
             >;
