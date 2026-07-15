@@ -271,8 +271,8 @@
             bindings = <
 &kp LC(LS(C_EJECT))  &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair  &trans    &dash_spaced
 &trans   &trans  &trans          &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans                &kp P     &equal_spaced
-&trans   &trans  &kp LG(LS(N4))  &trans  &trans  &trans  &code_quote  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON             &kp UP    &quote_pair
-&trans   &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LEFT              &kp DOWN  &kp RIGHT
+&trans   &trans  &kp LG(LS(N4))  &trans  &trans  &trans  &code_quote  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON             &kp LC(UP)    &quote_pair
+&trans   &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LC(LEFT)              &kp LC(DOWN)  &kp LC(RIGHT)
 &trans   &trans          &trans  &trans  &trans  &trans                                         &trans  &trans                                                  &trans
             >;
         };
