@@ -191,6 +191,17 @@
             label = "EQUAL_SPACED";
         };
 
+        // : キーで「␣:␣」を入力（前後スペース付きコロン、-/= と同様）
+
+        colon_spaced: colon_spaced {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LANG2 &kp SPACE &kp COLON &kp SPACE>;
+            label = "COLON_SPACED";
+        };
+
         // ( キーで「()」を入力し、カーソルを中へ戻す（LEFT×1）
 
         paren_pair: paren_pair {
@@ -325,7 +336,7 @@
             bindings = <
 &display_sleep       &trans  &trans          &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair   &trans        &dash_spaced
 &trans               &trans  &trans          &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans        &push_shite   &equal_spaced
-&trans               &trans  &kp LG(LC(LS(N4)))  &develop_str  &trans  &trans  &code_quote    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON     &kp LC(UP)    &quote_pair
+&trans               &trans  &kp LG(LC(LS(N4)))  &develop_str  &trans  &trans  &code_quote    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &colon_spaced     &kp LC(UP)    &quote_pair
 &trans               &trans  &trans          &trans        &trans  &trans  &trans         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)
 &trans               &trans                  &trans        &trans  &trans  &trans                                           &trans  &trans                                              &trans
             >;
