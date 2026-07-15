@@ -207,6 +207,24 @@
                 , <&kp LEFT>;
             label = "QUOTE_PAIR";
         };
+
+        // p キーで「pushして」を入力（IME 自動切替）
+        // LANG2(英数)→push→LANG1(かな)→shite(→して)→Enterで変換確定
+        // ※IME 切替の取りこぼしが出る場合は wait-ms を増やす
+
+        push_shite: push_shite {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp LANG2>
+                , <&kp P &kp U &kp S &kp H>
+                , <&kp LANG1>
+                , <&kp S &kp H &kp I &kp T &kp E>
+                , <&kp RET>;
+            label = "PUSH_SHITE";
+        };
     };
 };
 
@@ -281,7 +299,7 @@
             display-name = "Macro";
             bindings = <
 &kp LC(LS(C_EJECT))  &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair  &trans    &dash_spaced
-&trans   &trans  &trans          &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans                &kp P     &equal_spaced
+&trans   &trans  &trans          &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans                &push_shite  &equal_spaced
 &trans   &trans  &kp LG(LS(N4))  &trans  &trans  &trans  &code_quote  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON             &kp LC(UP)    &quote_pair
 &trans   &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LC(LEFT)              &kp LC(DOWN)  &kp LC(RIGHT)
 &trans   &trans          &trans  &trans  &trans  &trans                                         &trans  &trans                                                  &trans
