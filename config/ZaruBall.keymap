@@ -225,6 +225,20 @@
                 , <&kp RET>;
             label = "PUSH_SHITE";
         };
+
+        // d キーで「develop」を入力
+        // 先頭で LANG2(英数)に切替してから打つ（かな状態でも化けないように）
+
+        develop_str: develop_str {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings
+                = <&kp LANG2>
+                , <&kp D &kp E &kp V &kp E &kp L &kp O &kp P>;
+            label = "DEVELOP_STR";
+        };
     };
 };
 
@@ -300,7 +314,7 @@
             bindings = <
 &kp LC(LS(C_EJECT))  &trans  &trans  &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair  &trans    &dash_spaced
 &trans   &trans  &trans          &trans  &trans  &trans               &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans                &push_shite  &equal_spaced
-&trans   &trans  &kp LG(LS(N4))  &kp D   &trans  &trans  &code_quote  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON             &kp LC(UP)    &quote_pair
+&trans   &trans  &kp LG(LS(N4))  &develop_str   &trans  &trans  &code_quote  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON             &kp LC(UP)    &quote_pair
 &trans   &trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LC(LEFT)              &kp LC(DOWN)  &kp LC(RIGHT)
 &trans   &trans          &trans  &trans  &trans  &trans                                         &trans  &trans                                                  &trans
             >;
