@@ -163,7 +163,9 @@
         code_quote: code_quote {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp GRAVE &kp GRAVE &kp SPACE &kp LEFT &kp LEFT>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LANG2 &kp SPACE &kp GRAVE &kp GRAVE &kp SPACE &kp LEFT &kp LEFT>;
             label = "CODE_QUOTE";
         };
 
@@ -172,7 +174,9 @@
         dash_spaced: dash_spaced {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp MINUS &kp SPACE>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LANG2 &kp SPACE &kp MINUS &kp SPACE>;
             label = "DASH_SPACED";
         };
 
@@ -181,7 +185,9 @@
         equal_spaced: equal_spaced {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp SPACE &kp EQUAL &kp SPACE>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LANG2 &kp SPACE &kp EQUAL &kp SPACE>;
             label = "EQUAL_SPACED";
         };
 
@@ -190,7 +196,9 @@
         paren_pair: paren_pair {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LANG2 &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp LEFT>;
             label = "PAREN_PAIR";
         };
 
@@ -199,7 +207,9 @@
         quote_pair: quote_pair {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp DOUBLE_QUOTES &kp DOUBLE_QUOTES &kp LEFT>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LANG2 &kp DOUBLE_QUOTES &kp DOUBLE_QUOTES &kp LEFT>;
             label = "QUOTE_PAIR";
         };
 
@@ -226,6 +236,19 @@
             tap-ms = <30>;
             bindings = <&kp LANG2 &kp D &kp E &kp V &kp E &kp L &kp O &kp P>;
             label = "DEVELOP_STR";
+        };
+
+        // 画面スリープ: Ctrl+Shift+Power（macOS ディスプレイスリープ）
+        // Eject(Consumer)は修飾と別レポートで効かなかったため、
+        // K_POWER(キーボード usage)を使い Ctrl/Shift と同一レポートで送る
+        // tap-ms を長めにして macOS が確実に認識できるようにする
+
+        display_sleep: display_sleep {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            tap-ms = <100>;
+            bindings = <&kp LC(LS(K_POWER))>;
+            label = "DISPLAY_SLEEP";
         };
     };
 };
@@ -300,9 +323,9 @@
         macro_layer {
             display-name = "Macro";
             bindings = <
-&kp LC(LS(C_EJECT))  &trans  &trans          &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair   &trans        &dash_spaced
+&display_sleep       &trans  &trans          &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair   &trans        &dash_spaced
 &trans               &trans  &trans          &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans        &push_shite   &equal_spaced
-&trans               &trans  &kp LG(LS(N4))  &develop_str  &trans  &trans  &code_quote    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON     &kp LC(UP)    &quote_pair
+&trans               &trans  &kp LG(LC(LS(N4)))  &develop_str  &trans  &trans  &code_quote    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp COLON     &kp LC(UP)    &quote_pair
 &trans               &trans  &trans          &trans        &trans  &trans  &trans         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)
 &trans               &trans                  &trans        &trans  &trans  &trans                                           &trans  &trans                                              &trans
             >;
