@@ -284,11 +284,11 @@
             display-name = "Mouse";
             sensor-bindings = <&scroll_down_up>;
             bindings = <
-&to_layer_0 ESC     &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3  &to_layer_0 N4  &to_layer_0 N5                     &trans  &trans  &trans  &trans                     &to_layer_0 N6  &to_layer_0 N7  &to_layer_0 N8  &to_layer_0 N9  &to_layer_0 N0  &to_layer_0 MINUS
-&to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T                      &trans  &trans  &trans  &trans                     &to_layer_0 Y   &to_layer_0 U   &to_layer_0 I   &to_layer_0 O   &to_layer_0 P   &to_layer_0 EQUAL
-&to_layer_0 CAPS    &to_layer_0 A   &kp S           &mkp MCLK       &mkp RCLK       &msc SCRL_UP    &msc SCRL_LEFT     &trans  &trans  &trans  &trans    &msc SCRL_LEFT   &msc SCRL_UP    &mkp LCLK       &mkp LCLK       &mkp MCLK       &mkp RCLK       &to_layer_0 SEMICOLON
-&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &kp C           &mkp MB5        &msc SCRL_DOWN  &msc SCRL_RIGHT    &trans  &trans  &trans  &trans    &msc SCRL_RIGHT  &msc SCRL_DOWN  &mkp LCLK       &mkp LCLK       &mkp MCLK       &mkp RCLK       &lt SCROLL BACKSLASH
-&trans              &trans                          &trans          &trans          &trans          &trans                                               &trans           &trans                                                                          &trans
+&to_layer_0 ESC     &to_layer_0 N1  &to_layer_0 N2  &to_layer_0 N3  &to_layer_0 N4  &to_layer_0 N5            &trans  &trans  &trans  &trans            &to_layer_0 N6  &to_layer_0 N7  &to_layer_0 N8  &to_layer_0 N9  &to_layer_0 N0  &to_layer_0 MINUS
+&to_layer_0 TAB     &to_layer_0 Q   &to_layer_0 W   &to_layer_0 E   &to_layer_0 R   &to_layer_0 T             &trans  &trans  &trans  &trans            &to_layer_0 Y   &to_layer_0 U   &to_layer_0 I   &to_layer_0 O   &to_layer_0 P   &to_layer_0 EQUAL
+&to_layer_0 CAPS    &to_layer_0 A   &kp S           &none           &none           &none           &none     &trans  &trans  &trans  &trans    &none   &none           &mkp LCLK       &mkp LCLK       &mkp MCLK       &mkp RCLK       &to_layer_0 SEMICOLON
+&to_layer_0 LSHIFT  &to_layer_0 Z   &to_layer_0 X   &kp C           &kp V           &none           &none     &trans  &trans  &trans  &trans    &none   &none           &mkp LCLK       &mkp LCLK       &mkp MCLK       &mkp RCLK       &lt SCROLL BACKSLASH
+&kp LCMD            &trans                          &trans          &trans          &trans          &trans                                      &trans  &trans                                                                          &trans
             >;
         };
 
@@ -334,11 +334,11 @@
         macro_layer {
             display-name = "Macro";
             bindings = <
-&display_sleep       &trans  &trans          &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair   &trans        &dash_spaced
-&trans               &trans  &trans          &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans        &push_shite   &equal_spaced
-&trans               &trans  &kp LG(LC(LS(N4)))  &develop_str  &trans  &trans  &code_quote    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &colon_spaced     &kp LC(UP)    &quote_pair
-&trans               &trans  &trans          &trans        &trans  &trans  &trans         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LC(LEFT)  &kp LC(DOWN)  &kp LC(RIGHT)
-&trans               &trans                  &trans        &trans  &trans  &trans                                           &trans  &trans                                              &trans
+&display_sleep  &trans  &trans              &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair    &trans        &dash_spaced
+&trans          &trans  &trans              &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans         &push_shite   &equal_spaced
+&trans          &trans  &kp LG(LC(LS(N4)))  &develop_str  &trans  &trans  &code_quote    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &colon_spaced  &kp LC(UP)    &quote_pair
+&trans          &trans  &trans              &trans        &trans  &trans  &trans         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LC(LEFT)   &kp LC(DOWN)  &kp LC(RIGHT)
+&trans          &trans                      &trans        &trans  &trans  &trans                                           &trans  &trans                                               &trans
             >;
         };
 
