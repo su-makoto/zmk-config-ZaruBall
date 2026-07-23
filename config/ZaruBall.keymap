@@ -249,6 +249,18 @@
             label = "DEVELOP_STR";
         };
 
+        // c キーで「claude」を入力
+        // 先頭で LANG2(英数)に切替してから打つ（かな状態でも化けないように）
+
+        claude_str: claude_str {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <30>;
+            tap-ms = <30>;
+            bindings = <&kp LANG2 &kp C &kp L &kp A &kp U &kp D &kp E>;
+            label = "CLAUDE_STR";
+        };
+
         // 画面スリープ: Ctrl+Shift+Power（macOS ディスプレイスリープ）
         // Eject(Consumer)は修飾と別レポートで効かなかったため、
         // K_POWER(キーボード usage)を使い Ctrl/Shift と同一レポートで送る
@@ -337,7 +349,7 @@
 &display_sleep  &trans  &trans              &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &paren_pair    &trans        &dash_spaced
 &trans          &trans  &trans              &trans        &trans  &trans                 &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans         &push_shite   &equal_spaced
 &trans          &trans  &kp LG(LC(LS(N4)))  &develop_str  &trans  &trans  &code_quote    &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &colon_spaced  &kp LC(UP)    &quote_pair
-&trans          &trans  &trans              &trans        &trans  &trans  &trans         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LC(LEFT)   &kp LC(DOWN)  &kp LC(RIGHT)
+&trans          &trans  &trans              &claude_str   &trans  &trans  &trans         &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &kp LC(LEFT)   &kp LC(DOWN)  &kp LC(RIGHT)
 &trans          &trans                      &trans        &trans  &trans  &trans                                           &trans  &trans                                               &trans
             >;
         };
