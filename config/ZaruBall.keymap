@@ -21,10 +21,15 @@
 
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 100
 
+// タイピング直後の振動による誤発火を防ぐ猶予（require-prior-idle-ms）
+&zip_temp_layer {
+    require-prior-idle-ms = <100>;
+};
+
 &trackball_listener {
     input-processors = <
                          &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)
-                         &zip_temp_layer MOUSE 500
+                         &zip_temp_layer MOUSE 150
     >;
 
     scroller {

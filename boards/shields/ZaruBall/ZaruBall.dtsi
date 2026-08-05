@@ -207,10 +207,9 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
 
-        force-awake;
-        /* keep the sensor awake while ZMK activity state is ACTIVE,
-        fallback to normal downshift mode after ZMK goes into IDLE / SLEEP mode.
-        thus, the sensor would be a `wakeup-source` */
+        /* force-awake は外している: 常時RUNモード固定によりノイズを
+        マウスレイヤー誤発火として拾いやすくなるため。
+        外すと未使用時は自動でREST1/REST2に降格し感度が下がる */
     };
 };
 
