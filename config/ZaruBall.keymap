@@ -30,7 +30,7 @@
     input-processors = <
                          &zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_Y_INVERT | INPUT_TRANSFORM_X_INVERT)
                          &zip_xy_scaler 3 2 // マウスポインタの移動量を1.5倍に
-                         &zip_temp_layer MOUSE 150
+                         &zip_temp_layer MOUSE 350
     >;
 
     scroller {
